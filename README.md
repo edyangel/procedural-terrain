@@ -1,6 +1,6 @@
-# Pokemon RPG
+# Farming RPG
 
-A Pokemon-style RPG created with Pygame.
+A Farming-style RPG created with Pygame.
 
 ## Setup
 1. Install Python.
