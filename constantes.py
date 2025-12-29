@@ -1,0 +1,129 @@
+ANCHO_PANTALLA = 800
+ALTO_PANTALLA = 600
+ALTO_PERSONAJE = 48
+ANCHO_PERSONAJE = 48
+COLOR_PERSONAJE = (255, 255, 0)
+COLOR_BG = (0, 0, 20)
+FPS = 60
+SCALE_PERSONAJE = 1
+TILE_SIZE = 16
+TILE_SCALE = 1
+
+# Constantes del Mapa
+FILAS_MAPA = 40
+COLUMNAS_MAPA = 50
+
+# Indices de Tiles
+TIERRA = 12 
+AGUA = 44
+BORDE_SUP = 1
+BORDE_INF = 23
+BORDE_IZQ = 11
+BORDE_DER = 13
+ESQ_SUP_IZQ = 0
+ESQ_SUP_DER = 2
+ESQ_INF_IZQ = 22
+ESQ_INF_DER = 24
+PENINSULA_ABAJO = 25
+PENINSULA_ABAJO_CONX = 19
+PENINSULA_ARRIBA = 3
+PENINSULA_DERECHA = 35
+PENINSULA_IZQUIERDA = 33
+
+OFFSET_ARENA = 99
+ARENA = 99 + 12 # El centro de la arena (suponiendo que tierra es 12)
+ISLA_TIERRA = 36
+ISLA_TIERRA_2 = 63
+ISLA_TIERRA_3 = 74
+UNION_ESQ_SUP_IZQ = 12
+UNION_ESQ_SUP_DER = 12 # Provisional
+UNION_ESQ_INF_IZQ = 17 # Provisional
+UNION_ESQ_INF_DER = 16 # Provisional
+
+#Arena
+ARENA = 99 + 12
+
+# Mapeo:  { VALOR_MASK : ID_IMAGEN }
+REGLAS_TILES = {
+
+    #peninsulas:
+    206: PENINSULA_ABAJO,
+    222: PENINSULA_ABAJO,
+    238: PENINSULA_ABAJO,
+
+    192: PENINSULA_ABAJO_CONX,
+    7: PENINSULA_ARRIBA,
+
+    253: PENINSULA_DERECHA,
+    173: PENINSULA_DERECHA,
+    189: PENINSULA_DERECHA,
+    61: PENINSULA_DERECHA,
+
+
+    11: PENINSULA_IZQUIERDA,
+
+    # -- Esquinas Interiores (La magia) --
+    16: UNION_ESQ_SUP_IZQ, 
+    32: UNION_ESQ_SUP_DER,
+    64: UNION_ESQ_INF_IZQ,
+    128: UNION_ESQ_INF_DER,
+
+    # -- Casos Hibridos (Full Bitmask) --
+    35: ESQ_SUP_IZQ,   # 3 + 32 (Arr+Izq + DiagArrDer)
+    21: ESQ_SUP_DER,   # 5 + 16 (Arr+Der + DiagArrIzq)
+    138: ESQ_INF_IZQ,  # 10 + 128 (Abj+Izq + DiagAbjDer)
+    76: ESQ_INF_DER,   # 12 + 64 (Abj+Der + DiagAbjIzq)
+
+    # -- Casos Saturados (Bordes + Sus Diagonales) --
+    49: BORDE_SUP, # 1 + 16 + 32
+    17: BORDE_SUP,
+    161: BORDE_SUP,
+    145: BORDE_SUP,
+    33: BORDE_SUP,
+    1: BORDE_SUP,
+    
+    82: BORDE_IZQ, # 2 + 16 + 64
+    66: BORDE_IZQ,
+    18: BORDE_IZQ,
+    146: BORDE_IZQ,
+    2: BORDE_IZQ,
+
+    164: BORDE_DER, # 4 + 32 + 128
+    132: BORDE_DER,
+    36: BORDE_DER,
+    180: BORDE_DER,
+    244: BORDE_DER, 
+    4: BORDE_DER,
+    228: BORDE_DER,
+
+    200: BORDE_INF, # 8 + 64 + 128
+    136: BORDE_INF,
+    8: BORDE_INF,
+    88: BORDE_INF,
+    72: BORDE_INF,
+    
+    255: ISLA_TIERRA,
+
+    # -- Esquinas Saturadas (Esquina + Diagonal vecina) --
+    19: ESQ_SUP_IZQ, # 3 + 16
+    51: ESQ_SUP_IZQ,
+    83: ESQ_SUP_IZQ,
+    115: ESQ_SUP_IZQ,
+    
+    37:  ESQ_SUP_DER, # 5 + 32
+    165: ESQ_SUP_DER,
+    181: ESQ_SUP_DER,
+    53: ESQ_SUP_DER,
+    
+    74:  ESQ_INF_IZQ, # 10 + 64
+    202: ESQ_INF_IZQ,
+    90: ESQ_INF_IZQ,
+    218: ESQ_INF_IZQ,
+
+    140: ESQ_INF_DER, # 12 + 128
+    236: ESQ_INF_DER,
+    220: ESQ_INF_DER,
+    204: ESQ_INF_DER,
+    172: ESQ_INF_DER,
+    156: ESQ_INF_DER,
+}
