@@ -77,7 +77,7 @@ class Mapa:
 
                 suerte = random.randint(0,100)
 
-                if suerte < 40:
+                if suerte < 5:
                     fila_nueva.append(constantes.AGUA)
                 elif suerte < 55:
                     fila_nueva.append(constantes.ARENA)

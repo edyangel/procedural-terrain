@@ -6,7 +6,7 @@ from mapa import Mapa
 
 pygame.init()
 ventana = pygame.display.set_mode((constantes.ANCHO_PANTALLA, constantes.ALTO_PANTALLA))
-pygame.display.set_caption("fokemon")
+pygame.display.set_caption("farm island")
 
 # --- CARGAR JUGADOR ---
 player_image = pygame.image.load("assets/texture/jugador/walk.png")
